@@ -8,7 +8,7 @@ const LoginPage = ({handleSignupOrLogin}) => {
     
     let handleChange = (e) => {
         setUser({
-            [e.target.name]: e.target.value
+           ...user, [e.target.name]: e.target.value
         })
     }
 

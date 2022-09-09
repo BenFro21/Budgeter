@@ -24,7 +24,7 @@ function removeToken() {
 }
 
 
-export default {
+module.exports = {
     setToken,
     getToken, 
     getUserFromToken,

@@ -3,20 +3,20 @@ import userService from '../../utils/userService'
 
 const SignupForm = () => {
 const [user, setUser] = useState({
-    name: '',
+    username: '',
     email: '',
     password: '',
-    passwordConf: ''
+    password_confirmation: ''
 })
 
 let handleChange = (e) => {
     setUser({
-        [e.target.name] : e.target.value
+        ...user, [e.target.name] : e.target.value
     })
 }
 
 let handleSubmit = async (e) => {
-    e.preventdefault()
+    e.preventDefault()
     try{
         await userService.signup(user)
     }catch(err){
@@ -27,10 +27,10 @@ let handleSubmit = async (e) => {
   return (
     <div>
         <form onSubmit={handleSubmit} >
-            <input type='text' placeholder='Name' value={user.name} name='name' onChange={handleChange} />
+            <input type='text' placeholder='Name' value={user.name} name='username' onChange={handleChange} />
             <input type='email' placeholder='Email' value={user.email} name='email' onChange={handleChange} />
             <input type='password' placeholder='Password' value={user.password} name='password' onChange={handleChange} />
-            <input type='password' placeholder='Confirm Password' value={user.passwordConf} name='passwordConf' onChange={handleChange} />  
+            <input type='password' placeholder='Confirm Password' value={user.passwordConf} name='password_confirmation' onChange={handleChange} />  
             <button type='submit'>Sign Up</button>        
         </form>
     </div>

@@ -15,12 +15,14 @@ function login(cred){
 }
 
 const signup = (user) => {
+    console.log('sign up func ran')
     return fetch(BASE_URL + 'register/', {
         method: 'POST',
         headers: new Headers({'Content-Type': 'application/json'}),
         body: JSON.stringify(user)
     })
     .then(res => {
+        console.log(res)
         if(res.ok) return res.json();
         throw new Error('Email already taken!')
     })
@@ -37,10 +39,11 @@ function logout() {
     tokenService.removeToken()
 }
 
-export default {
+let userService = {
+
     signup,
     login,
     getUser,
     logout
 };
-  
+export default userService
