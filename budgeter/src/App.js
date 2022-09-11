@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import SignUpPage from './pages/SIgnUpPage/SignUpPage';
 import Layout from './components/Layout/Layout';
 import NewBudgetPage from './pages/NewBudgetPage/NewBudgetPage';
+import BudgetsPage from './pages/BudgetsPage/BudgetsPage';
 
 
 // /userService.getUser()/ 
@@ -25,11 +26,12 @@ function App() {
 
   return (
     <div className="App">
-      <Layout user={user} setUser={setUser}>
+      <Layout user={user} setUser={setUser} handleLogout={handleLogout} >
         <Routes>
           <Route path='/register' element={<SignUpPage handleSignupOrLogin={handleSignupOrLogin}/>} />
           <Route path='/login' element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
           <Route path='/budgets/new' element={<NewBudgetPage />} />
+          <Route path='/budgets' element={<BudgetsPage user={user} />} /> 
         </Routes>
       </Layout>
     </div>
