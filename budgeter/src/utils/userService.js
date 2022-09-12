@@ -37,6 +37,7 @@ function getUser() {
 
 function logout() {
     tokenService.removeToken()
+    console.log('logged out')
 }
 
 let userService = {

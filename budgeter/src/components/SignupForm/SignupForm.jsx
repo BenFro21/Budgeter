@@ -1,5 +1,11 @@
 import React, {useState} from 'react'
 import userService from '../../utils/userService'
+import styled from 'styled-components'
+
+const StyledForm = styled.form`
+display: flex;
+justify-content: space-between;
+`
 
 const SignupForm = () => {
 const [user, setUser] = useState({
@@ -25,15 +31,15 @@ let handleSubmit = async (e) => {
 }
 
   return (
-    <div>
-        <form onSubmit={handleSubmit} >
+    <>
+        <StyledForm onSubmit={handleSubmit} >
             <input type='text' placeholder='Name' value={user.name} name='username' onChange={handleChange} />
             <input type='email' placeholder='Email' value={user.email} name='email' onChange={handleChange} />
             <input type='password' placeholder='Password' value={user.password} name='password' onChange={handleChange} />
             <input type='password' placeholder='Confirm Password' value={user.passwordConf} name='password_confirmation' onChange={handleChange} />  
             <button type='submit'>Sign Up</button>        
-        </form>
-    </div>
+        </StyledForm>
+    </>
   )
 }
 

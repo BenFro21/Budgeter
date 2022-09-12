@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import axios from 'axios'
+import { Navigate } from 'react-router-dom'
+
 
 const NewBudgetForm = () => {
     let [budget, setBudget] = useState({
@@ -17,13 +20,18 @@ const NewBudgetForm = () => {
     let handleSubmit = async (e) => {
         e.preventDefault()
         try {
-
+            axios.post('localhost:8000/budgets/new', budget)
+            .then(res => {
+                setBudget(res)
+            })
+            .then(res => {
+                Navigate('/budgets', {replace:true})
+            })
         }catch(err){
             console.log('from handlesubmit in new budget form', err)
         }
     }
   return (
-    <div>
         <form onSubmit={handleSubmit}>
             <input type='text' placeholder='title' value={budget.title} name='title' onChange={handleChange} />
             <input type='dropbox' placeholder='date_length' value={budget.date_length} name='date_length' onChange={handleChange} />
@@ -33,8 +41,6 @@ const NewBudgetForm = () => {
             <input type='dropbox' placeholder='created_by' value={budget.created_by} name='created_by' onChange={handleChange} />
             <button type='submit'>Submit</button>
         </form>
-
-    </div>
   )
 }
 

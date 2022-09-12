@@ -4,19 +4,22 @@ import tokenService from "./tokenService";
 // send headers 
 let backURL = 'http://localhost:8000/'
 
-async function getBudget(){
+let getBudget = async () => {
     const token = tokenService.getToken()
-    await fetch(backURL + 'budgets/', {
-        method: 'GET',
-        headers: new Headers({'content-type': 'application/json', 'authorization': token})
-    })
-    .then(res => {
-        if(res.ok){
-            return res.json()
-        }
-    })
-    .then(res => res)
+    // await fetch(backURL + 'budgets/', {
+    //     method: 'GET',
+    //     headers: new Headers({'content-type': 'application/json', 'authorization': token})
+    // })
+    // .then(res => {
+    //     if(res.ok){
+    //         return res.json()
+    //     }
+    // })
+    // .then(res => res)
+
+
 }
+
 
 
 

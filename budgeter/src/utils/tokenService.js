@@ -6,7 +6,7 @@ function setToken(token){
 
 function getToken(){
     let token = localStorage.getItem('token')
-    if(token !== 'undefined'){
+    if(token !== 'undefined' && token !== null){
         const payload = JSON.parse(atob(token.split('.')[1]))
         if(payload.exp < Date.now() / 1000){
             localStorage.removeItem('token')
