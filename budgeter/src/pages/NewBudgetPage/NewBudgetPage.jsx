@@ -5,7 +5,7 @@ const NewBudgetPage = () => {
 
   return (
     <div>
-      <NewBudgetForm/>
+      <NewBudgetForm   />
       
     </div>
   )
