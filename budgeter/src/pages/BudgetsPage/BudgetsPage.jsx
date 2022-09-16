@@ -36,6 +36,8 @@ const BudgetsPage = () => {
                             <th>Actual Ammount</th>
                             <th>Edit Expense</th>
                             <th>Delete Expense</th>
+                            <th>Difference</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
