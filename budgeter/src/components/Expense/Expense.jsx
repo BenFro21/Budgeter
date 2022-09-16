@@ -27,7 +27,6 @@ let total = budgetIncome - diff
         <td>{total}</td>    
         <td><button className='edit'><Link to={`/expenses/edit/${expense.id}`}>Edit</Link></button></td>
         <td><button className='destroy' onClick={deleteIt} >Delete Expense</button></td>
-      
       </tr>
     </>
 
