@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, Link, Navigate } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import Expense from '../../components/Expense/Expense'
 import axios from 'axios'
 import "./BudgetDetailPage.css"
 
 const BudgetDetailPage = () => {
     let {id} = useParams()
+  const Navigate = useNavigate()
+
     const [budget, setBudget] = useState()
     useEffect(() => {
         fetch(`http://localhost:8000/budgets/${id}/`)
@@ -40,12 +42,12 @@ const BudgetDetailPage = () => {
             </thead>
             <tbody>
                 { budget?.expenses.map((expense, index) => {
-                    return <Expense expense={expense} index={index} budgetIncome={budget?.income} />
+                    return <Expense budgetId={budget.id} expense={expense} index={index} budgetIncome={budget?.income} />
                })}
             </tbody>
         </table>
         <button className='destroy' onClick={deleteIt}>Delete</button>  
-        <button className='edit' ><Link to='/expenses/new'>Add Expense </Link></button>
+        <button className='edit' ><Link to={`/expenses/new/${budget?.id}`}> Add Expense </Link></button>
 
     </div>
   )

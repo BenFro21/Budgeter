@@ -2,6 +2,8 @@ import React from 'react'
 import {Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import userService from '../../utils/userService'
+import tokenService from '../../utils/tokenService'
+
 
 const NavBarContainer = styled.nav`
   padding: 5px;
@@ -16,19 +18,21 @@ const NavBarContainer = styled.nav`
 `
 
 
-const NavBar = ({user, setUser}) => {
+const NavBar = ({user}) => {
 
-  const navigate = useNavigate()
+console.log(user)
+  const Navigate = useNavigate()
   return (
     <NavBarContainer>
         <ul>
             <li><Link to='/budgets' >My Budgets</Link></li>
             <li><Link to='/budgets/new'>New Budget</Link></li>
-            {user? <li>Welcome {user.first}</li> : <li><Link to='/login' >Login</Link></li> }
+            {user? <li>Welcome {user?.username}</li> : <li><Link to='/login' >Login</Link></li> }
             {user? null : <li><Link to='/register' >Sign Up</Link></li> }
             { user?  <li onClick={() => {
                 userService.logout()
-                navigate('/login')
+                Navigate('/budgets', {replace:true})
+
             }}>Log Out</li> : null}
             {/* <li><button onClick={userService.logout()}>Logout</button></li> */}
         </ul>

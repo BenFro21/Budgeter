@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './BudgetsPage.css'
 import {Link} from 'react-router-dom'
-import budgetService from '../../utils/budgetService'
 import Expense from '../../components/Expense/Expense'
 import tokenService from '../../utils/tokenService'
 let backURL = 'http://localhost:8000/'
@@ -45,9 +44,7 @@ const BudgetsPage = () => {
                         { budget.expenses.map(expense => {
                             return <Expense expense={expense} />
                         })}
-                        {/* <td>{budget.total}</td> */}
                     </tbody>
-            {/* reduce budgets.expenses to sum up total  */}  
                 </table>
             </>)
         })}

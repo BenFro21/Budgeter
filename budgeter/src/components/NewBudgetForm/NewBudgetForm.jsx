@@ -6,16 +6,13 @@ import tokenService from '../../utils/tokenService'
 
 
 const NewBudgetForm = () => {
-   let {id} = useParams()
+//    let {id} = useParams()
    let token = tokenService.getToken()
     const initalState = {  
     title: '',
     date_length: '',
     budget_for: '',
     income: '',
-    total: '',
-    created_by: '',
-    expenses: [], 
 }
     let [formData, setFormData] = useState(initalState)
     let handleChange = (e) => {
@@ -29,7 +26,7 @@ const NewBudgetForm = () => {
             .then(res => {
                 setFormData(initalState)
                 // setBudgets(res.data)
-                Navigate('/', {replace:true})
+                Navigate('/budgets', {replace:true})
             })
         }catch(err){
             console.log('from handlesubmit in new budget form', err)

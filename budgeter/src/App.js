@@ -35,7 +35,7 @@ function App() {
           <Route path='/register' element={<SignUpPage handleSignupOrLogin={handleSignupOrLogin}/>} />
           <Route path='/login' element={<LoginPage handleSignupOrLogin={handleSignupOrLogin}/>} />
           <Route path='/budgets/new' element={<NewBudgetPage budgets={budgets} setBudgets={setBudgets} />} />
-          <Route path='/expenses/new' element={<NewExpensePage />} />
+          <Route path='/expenses/new/:id' element={<NewExpensePage />} />
           <Route path='/budgets' element={<BudgetsPage user={user} />} /> 
           <Route path='/budgets/:id/' element={<BudgetDetailPage />}/>
           <Route path ='/expenses/edit/:id' element={<ExpenseEdit />} />
