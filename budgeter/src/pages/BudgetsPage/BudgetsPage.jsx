@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import './BudgetsPage.css'
 import {Link} from 'react-router-dom'
 import budgetService from '../../utils/budgetService'
 import Expense from '../../components/Expense/Expense'
@@ -24,7 +25,7 @@ const BudgetsPage = () => {
         {budgets?.map(budget => {
             return (<>
                 <h3>{budget.title}</h3>
-                <h4><Link to={`/budgets/${budget.id}/`}>{budget.title} Details</Link></h4>
+                <h4><button className='edit'><Link to={`/budgets/${budget.id}/`}>{budget.title} Details</Link></button></h4>
                 <table>
                     <thead>
                         <tr>
@@ -41,7 +42,7 @@ const BudgetsPage = () => {
                         { budget.expenses.map(expense => {
                             return <Expense expense={expense} />
                         })}
-                        <td>{budget.total}</td>
+                        {/* <td>{budget.total}</td> */}
                     </tbody>
             {/* reduce budgets.expenses to sum up total  */}  
                 </table>

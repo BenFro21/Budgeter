@@ -17,10 +17,10 @@ let deleteIt = () =>{
         <td>{expense?.title}</td>
         <td>{expense?.biller}</td>
         <td>{expense?.type_bill}</td>
-        <td>{expense?.amount_planned}</td>
-        <td>{expense?.amount_actual}</td>
-        <td><Link to={`/expenses/edit/${expense.id}`}>Edit</Link></td>
-        <td><button onClick={deleteIt} >Delete Expense</button></td>
+        <td>${expense?.amount_planned}</td>
+        <td>${expense?.amount_actual}</td>
+        <td><button className='edit'><Link to={`/expenses/edit/${expense.id}`}>Edit</Link></button></td>
+        <td><button className='destroy' onClick={deleteIt} >Delete Expense</button></td>
       </tr>
     </>
 

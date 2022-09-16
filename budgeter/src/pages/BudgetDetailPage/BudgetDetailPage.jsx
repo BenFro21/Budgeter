@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, Navigate } from 'react-router-dom'
 import Expense from '../../components/Expense/Expense'
 import axios from 'axios'
+import "./BudgetDetailPage.css"
 
 const BudgetDetailPage = () => {
     let {id} = useParams()
@@ -14,17 +15,15 @@ const BudgetDetailPage = () => {
     console.log(budget)
     let deleteIt = () => {
         axios.delete(`http://localhost:8000/budgets/${id}/`)
-    
     }
 
   return (
     <div>
-        <Link to='/expenses/new'>Add Expense </Link>
-        <Link to={`/budgets/delete/${id}/`} >Delete</Link>
-        <button onClick={deleteIt}>Delete</button>  
+        <h3>{budget?.title}</h3>
+        <h4>${budget?.income}</h4>        
+
       <table>
             <thead>
-                {budget?.title}        
                 <tr>
                     <th>Expense Title</th>
                     <th> Biller </th>
@@ -42,6 +41,9 @@ const BudgetDetailPage = () => {
                })}
             </tbody>
         </table>
+        <button className='destroy' onClick={deleteIt}>Delete</button>  
+        <button className='edit' ><Link to='/expenses/new'>Add Expense </Link></button>
+
     </div>
   )
 }

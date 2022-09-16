@@ -1,0 +1,49 @@
+table{
+    border: 3px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0px;
+    /* background-color: coral; */
+}
+thead{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0px;   
+}
+th{
+    text-decoration: underline;
+    /* border: 1px solid black; */
+    justify-content: space-between;
+    padding: 5px;
+}
+.destroy{
+    color: red;
+    justify-content: start;
+    width:150px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    
+}
+.destroy:hover{
+    background-color: #f44336;
+    color:white;
+}
+.edit{
+    color:#008cba;
+    width:150px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition-duration: 0.4s;
+
+}
+.edit:hover{
+    background-color: #008cba;
+    color:white;
+
+}
+h4{
+    justify-items: end;
+    justify-content: right;
+    color:green;
+}
