@@ -34,10 +34,11 @@ const BudgetsPage = () => {
                             <th>Type of Bill</th>
                             <th>Amount Budgeted</th>
                             <th>Actual Ammount</th>
-                            <th>Edit Expense</th>
-                            <th>Delete Expense</th>
                             <th>Difference</th>
                             <th>Total</th>
+                            <th>Edit Expense</th>
+                            <th>Delete Expense</th>
+                            
                         </tr>
                     </thead>
                     <tbody>

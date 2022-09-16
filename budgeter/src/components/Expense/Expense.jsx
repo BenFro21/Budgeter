@@ -23,10 +23,11 @@ let total = budgetIncome - diff
         <td>{expense?.type_bill}</td>
         <td>${expense?.amount_planned}</td>
         <td>${expense?.amount_actual}</td>
+        <td>{diff}</td> 
+        <td>{total}</td>    
         <td><button className='edit'><Link to={`/expenses/edit/${expense.id}`}>Edit</Link></button></td>
         <td><button className='destroy' onClick={deleteIt} >Delete Expense</button></td>
-        <td>{diff}</td> 
-        <td>{total}</td>     
+      
       </tr>
     </>
 
