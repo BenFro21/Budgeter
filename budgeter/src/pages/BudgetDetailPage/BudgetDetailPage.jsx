@@ -12,9 +12,10 @@ const BudgetDetailPage = () => {
         .then(res => res.json())
         .then(data => setBudget(data))
     }, [])
-    console.log(budget)
     let deleteIt = () => {
         axios.delete(`http://localhost:8000/budgets/${id}/`)
+        Navigate('/budgets', {replace:true})
+
     }
 
   return (
@@ -32,12 +33,13 @@ const BudgetDetailPage = () => {
                     <th>Actual Ammount</th>
                     <th>Edit Expense</th>
                     <th>Delete Expense</th>
+                    <th>Difference</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody>
                 { budget?.expenses.map((expense, index) => {
-                    return <Expense expense={expense} index={index} />
+                    return <Expense expense={expense} index={index} budgetIncome={budget?.income} />
                })}
             </tbody>
         </table>

@@ -1,15 +1,19 @@
 import React, {useState, useEffect} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Navigate} from 'react-router-dom'
 import axios from 'axios'
 
 
 
 
-const Expense = ({expense, index}) => {
+const Expense = ({expense, budgetIncome}) => {
 let deleteIt = () =>{
   axios.delete(`http://localhost:8000/expenses/${expense.id}/`)
-}
+  Navigate('/budgets', {replace:true})
 
+}
+console.log(expense)
+let diff = expense?.amount_planned - expense?.amount_actual 
+let total = budgetIncome - diff
 
   return (
     <>      
@@ -21,6 +25,8 @@ let deleteIt = () =>{
         <td>${expense?.amount_actual}</td>
         <td><button className='edit'><Link to={`/expenses/edit/${expense.id}`}>Edit</Link></button></td>
         <td><button className='destroy' onClick={deleteIt} >Delete Expense</button></td>
+        <td>{diff}</td> 
+        <td>{total}</td>     
       </tr>
     </>
 

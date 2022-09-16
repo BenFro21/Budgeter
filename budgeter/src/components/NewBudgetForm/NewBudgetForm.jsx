@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './NewBudgetForm.css'
 import axios from 'axios'
 import { Navigate, useParams } from 'react-router-dom'
 import tokenService from '../../utils/tokenService'
@@ -36,14 +37,25 @@ const NewBudgetForm = () => {
     }
   return (
         <form onSubmit={handleSubmit}>
-            <input type='text' placeholder='title' value={formData.title} name='title' onChange={handleChange} />
-            <input type='dropbox' placeholder='date_length' value={formData.date_length} name='date_length' onChange={handleChange} />
-            <input type='text' placeholder='budgets_for' value={formData.budget_for} name='budget_for' onChange={handleChange} />
-            <input type='number' placeholder='income' value={formData.income} name='income' onChange={handleChange} />
-            <input type='number' placeholder='total' value={formData.total} name='total' onChange={handleChange} />
-            <input type='dropbox' placeholder='created_by' value={formData.created_by} name='created_by' onChange={handleChange} />
-            <input hidden={true} value={id}/>
-            <button type='submit'>Submit</button>
+            <label for='title'>Title</label>
+            <input id='title' type='text' placeholder='title' value={formData.title} name='title' onChange={handleChange} />
+            
+            <label for='date_length'>Date Length</label>
+            <input id='date_length' type='text' placeholder='date_length' value={formData.date_length} name='date_length' onChange={handleChange} />
+            
+            <label for='budget_for'>Budget For </label>
+            <input id='budget_for' type='text' placeholder='budgets_for' value={formData.budget_for} name='budget_for' onChange={handleChange} />
+            
+            <label for='income'>Income </label>
+            <input id='income' type='number' placeholder='income' value={formData.income} name='income' onChange={handleChange} />
+            
+            <label for='total'>Total</label>
+            <input id='total'  type='number' placeholder='total' value={formData.total} name='total' onChange={handleChange} />
+            
+            <label for='created_by'>Created By</label>
+            <input id='created_by' type='text' placeholder='created_by' value={formData.created_by} name='created_by' onChange={handleChange} />
+            <br />
+            <input type="submit" value="Submit" />
         </form>
   )
 }

@@ -25,9 +25,13 @@ const LoginPage = ({handleSignupOrLogin}) => {
   return (
     <div>
         <form onSubmit={handleSubmit} >
-            <input type="email" placeholder='Email' value={user.email} name='email' onChange={handleChange} />
-            <input type='password' placeholder='Password' value={user.password} name='password' onChange={handleChange}/>
-            <button type='submit'>Log in</button> 
+            <label for='email'>Email</label>
+            <input id='email' type="text" placeholder='Email' value={user.email} name='email' onChange={handleChange} />
+            
+            <label for='password'>Password</label>
+            <input id='password' type='text' placeholder='Password' value={user.password} name='password' onChange={handleChange}/>
+            <br />
+            <input type="submit" value="Submit" />
         </form>
     </div>
   )
