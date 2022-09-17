@@ -1,19 +1,18 @@
 import React, {useState, useEffect} from 'react'
 import {Link, Navigate} from 'react-router-dom'
 import axios from 'axios'
+let backendUrl = 'https://budget-django.herokuapp.com/'
 
 
 
 
-const Expense = ({expense, budgetIncome}) => {
+const Expense = ({expense, budgetIncome, budgetId}) => {
 let deleteIt = () =>{
-  axios.delete(`http://localhost:8000/expenses/${expense.id}/`)
+  axios.delete(`${backendUrl}/${expense.id}/`)
   Navigate('/budgets', {replace:true})
 
 }
-console.log(expense)
 let diff = expense?.amount_planned - expense?.amount_actual 
-let total = budgetIncome - diff
 
   return (
     <>      
@@ -24,7 +23,7 @@ let total = budgetIncome - diff
         <td>${expense?.amount_planned}</td>
         <td>${expense?.amount_actual}</td>
         <td>{diff}</td> 
-        <td>{total}</td>    
+        <td>Total</td>    
         <td><button className='edit'><Link to={`/expenses/edit/${expense.id}`}>Edit</Link></button></td>
         <td><button className='destroy' onClick={deleteIt} >Delete Expense</button></td>
       </tr>

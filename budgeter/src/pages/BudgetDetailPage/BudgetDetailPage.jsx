@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import Expense from '../../components/Expense/Expense'
 import axios from 'axios'
 import "./BudgetDetailPage.css"
+let backendUrl = 'https://budget-django.herokuapp.com/'
 
 const BudgetDetailPage = () => {
     let {id} = useParams()
@@ -10,12 +11,12 @@ const BudgetDetailPage = () => {
 
     const [budget, setBudget] = useState()
     useEffect(() => {
-        fetch(`http://localhost:8000/budgets/${id}/`)
+        fetch(`${backendUrl}/budgets/${id}/`)
         .then(res => res.json())
         .then(data => setBudget(data))
     }, [])
     let deleteIt = () => {
-        axios.delete(`http://localhost:8000/budgets/${id}/`)
+        axios.delete(`${backendUrl}/budgets/${id}/`)
         Navigate('/budgets', {replace:true})
 
     }

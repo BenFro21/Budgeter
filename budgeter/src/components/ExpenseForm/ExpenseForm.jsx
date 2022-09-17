@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import './ExpenseForm.css'
 import { useParams, Navigate} from 'react-router-dom'
 import axios from 'axios'
+let backendUrl = 'https://budget-django.herokuapp.com/'
 
 const ExpenseForm = () => {
 let {id} = useParams()
@@ -9,7 +10,7 @@ console.log(id)
 
     
         let [formData, setFormData] = useState({
-            budget: `http://localhost:8000/budgets/${id}`,
+            budget: `${backendUrl}/${id}`,
             title: '',
             biller: '',
             amount_planned: 1,
@@ -23,10 +24,10 @@ console.log(id)
         let handleSubmit = async (e) => {
             e.preventDefault()
             try {
-                axios.post(`http://localhost:8000/expenses/`, {...formData})
+                axios.post(`${backendUrl}/expenses/`, {...formData})
                 .then(res => {
                     setFormData({
-                        budget: `http://localhost:8000/budgets/${id}`,
+                        budget: `${backendUrl}/${id}`,
                         title: '',
                         biller: '',
                         amount_planned: 1,

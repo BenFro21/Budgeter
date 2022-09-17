@@ -1,5 +1,5 @@
 import tokenService from "./tokenService";
-const BASE_URL = 'http://localhost:8000/'
+const BASE_URL = 'https://budget-django.herokuapp.com/'
 
 function login(cred){
     return fetch(BASE_URL + 'login/', {
