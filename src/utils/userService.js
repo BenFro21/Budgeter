@@ -1,8 +1,8 @@
 import tokenService from "./tokenService";
-const BASE_URL = 'https://budget-django.herokuapp.com/'
+const backendUrl = 'http://localhost:8000/'
 
 function login(cred){
-    return fetch(BASE_URL + 'login/', {
+    return fetch(backendUrl + 'login/', {
         method: 'POST',
         headers: new Headers({'Content-Type': 'application/json'}),
         body: JSON.stringify(cred)
@@ -16,7 +16,7 @@ function login(cred){
 
 const signup = (user) => {
     console.log('sign up func ran')
-    return fetch(BASE_URL + 'register/', {
+    return fetch(backendUrl +'register/', {
         method: 'POST',
         headers: new Headers({'Content-Type': 'application/json'}),
         body: JSON.stringify(user)

@@ -3,6 +3,7 @@ import './NewBudgetForm.css'
 import axios from 'axios'
 import { Navigate, useParams } from 'react-router-dom'
 import tokenService from '../../utils/tokenService'
+let backendUrl = 'http://localhost:8000/'
 
 
 const NewBudgetForm = () => {
@@ -22,7 +23,7 @@ const NewBudgetForm = () => {
     let handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            axios.post('http://localhost:8000/budgets/', formData, {headers: {'content-type': 'application/json', token: token}})
+            axios.post(`${backendUrl}/budgets`, formData, {headers: {'content-type': 'application/json', token: token}})
             .then(res => {
                 setFormData(initalState)
                 // setBudgets(res.data)

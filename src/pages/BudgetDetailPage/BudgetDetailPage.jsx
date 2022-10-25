@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import Expense from '../../components/Expense/Expense'
 import axios from 'axios'
 import "./BudgetDetailPage.css"
-let backendUrl = 'https://budget-django.herokuapp.com/'
+let backendUrl = 'http://localhost:8000/'
 
 const BudgetDetailPage = () => {
     let {id} = useParams()

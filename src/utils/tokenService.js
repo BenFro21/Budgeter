@@ -13,7 +13,7 @@ function getToken(){
             token = null
         }
     }
-    return token == 'undefined' ? undefined : token
+    return token === 'undefined' ? undefined : token
 }
 
 function getUserFromToken(){

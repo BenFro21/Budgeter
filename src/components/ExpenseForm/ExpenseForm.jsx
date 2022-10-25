@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './ExpenseForm.css'
 import { useParams, Navigate} from 'react-router-dom'
 import axios from 'axios'
-let backendUrl = 'https://budget-django.herokuapp.com/'
+let backendUrl = 'http://localhost:8000/'
 
 const ExpenseForm = () => {
 let {id} = useParams()
