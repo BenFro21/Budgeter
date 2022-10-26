@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './ExpenseForm.css'
 import { useParams, Navigate} from 'react-router-dom'
 import axios from 'axios'
-let backendUrl = 'http://localhost:8000/'
+let backendUrl = 'https://budget-django.herokuapp.com/'
 
 const ExpenseForm = () => {
 let {id} = useParams()
@@ -24,7 +24,7 @@ console.log(id)
         let handleSubmit = async (e) => {
             e.preventDefault()
             try {
-                axios.post(`${backendUrl}/expenses/`, {...formData})
+                axios.post(backendUrl + 'expenses/', {...formData})
                 .then(res => {
                     setFormData({
                         budget: `${backendUrl}/${id}`,

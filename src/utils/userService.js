@@ -1,5 +1,5 @@
 import tokenService from "./tokenService";
-const backendUrl = 'http://localhost:8000/'
+const backendUrl = 'https://budget-django.herokuapp.com/'
 
 function login(cred){
     return fetch(backendUrl + 'login/', {

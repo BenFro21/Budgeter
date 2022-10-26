@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Link, Navigate} from 'react-router-dom'
 import axios from 'axios'
-let backendUrl = 'http://localhost:8000/'
+let backendUrl = 'https://budget-django.herokuapp.com/'
 
 
 

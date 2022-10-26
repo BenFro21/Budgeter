@@ -3,7 +3,7 @@ import './BudgetsPage.css'
 import {Link} from 'react-router-dom'
 import Expense from '../../components/Expense/Expense'
 import tokenService from '../../utils/tokenService'
-let backURL = 'http://localhost:8000/'
+let backURL = 'https://budget-django.herokuapp.com/'
 
 const BudgetsPage = () => {
     useEffect(() => {

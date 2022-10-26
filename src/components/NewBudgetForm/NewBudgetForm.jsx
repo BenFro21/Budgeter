@@ -3,7 +3,7 @@ import './NewBudgetForm.css'
 import axios from 'axios'
 import { Navigate, useParams } from 'react-router-dom'
 import tokenService from '../../utils/tokenService'
-let backendUrl = 'http://localhost:8000/'
+let backendUrl = 'https://budget-django.herokuapp.com/'
 
 
 const NewBudgetForm = () => {
@@ -23,11 +23,11 @@ const NewBudgetForm = () => {
     let handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            axios.post(`${backendUrl}/budgets`, formData, {headers: {'content-type': 'application/json', token: token}})
+            axios.post(backendUrl + 'budgets/', formData, {headers: {'content-type': 'application/json', token: token}})
             .then(res => {
                 setFormData(initalState)
                 // setBudgets(res.data)
-                Navigate('/budgets', {replace:true})
+                Navigate('/budgets/', {replace:true})
             })
         }catch(err){
             console.log('from handlesubmit in new budget form', err)
