@@ -5,12 +5,10 @@ import axios from 'axios'
 let backendUrl = 'https://budget-django.herokuapp.com/'
 
 const ExpenseForm = () => {
-let {id} = useParams()
-console.log(id)
+        let {id} = useParams()
 
-    
         let [formData, setFormData] = useState({
-            budget: `${backendUrl}/${id}`,
+            budget: backendUrl + `budgets/${id}`,
             title: '',
             biller: '',
             amount_planned: 1,
@@ -35,10 +33,13 @@ console.log(id)
                         type_bill: '' 
                     })
                     // setExpenses(res.data)
+                
                 })
+                Navigate('/budgets/', {replace:true})
             }catch(err){
                 console.log('from handlesubmit in new budget form', err)
             }
+
         }
         return (
             <form onSubmit={handleSubmit}>

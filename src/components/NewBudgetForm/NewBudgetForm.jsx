@@ -17,8 +17,7 @@ const NewBudgetForm = () => {
 }
     let [formData, setFormData] = useState(initalState)
     let handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value
-        })
+        setFormData({...formData, [e.target.name]: e.target.value})
     }
     let handleSubmit = async (e) => {
         e.preventDefault()

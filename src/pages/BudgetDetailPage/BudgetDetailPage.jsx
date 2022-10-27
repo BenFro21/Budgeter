@@ -11,12 +11,12 @@ const BudgetDetailPage = () => {
 
     const [budget, setBudget] = useState()
     useEffect(() => {
-        fetch(`${backendUrl}/budgets/${id}/`)
+        fetch(`${backendUrl}budgets/${id}/`)
         .then(res => res.json())
         .then(data => setBudget(data))
     }, [])
     let deleteIt = () => {
-        axios.delete(`${backendUrl}/budgets/${id}/`)
+        axios.delete(`${backendUrl}budgets/${id}/`)
         Navigate('/budgets', {replace:true})
 
     }
